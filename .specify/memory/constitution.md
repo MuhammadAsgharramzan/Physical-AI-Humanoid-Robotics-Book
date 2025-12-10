@@ -1,55 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.1.0 → 1.0.0
+- Modified principles: All principles updated to reflect Physical AI & Humanoid Robotics book project
+- Added sections: Technical Standards, Development Workflow, Content Requirements
+- Removed sections: None
+- Templates requiring updates: ✅ All templates updated
+- Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Book Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Technical Accuracy
+All content must be grounded in robotics, AI, biomechanics, and control systems. Every technical claim, concept, or assertion must be supported by credible sources and verified through domain expertise. Technical diagrams and illustrations must be accurate and properly labeled to ensure educational value.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Clarity for Mixed Audience
+Content must be accessible to both beginners and intermediate robotics learners. Complex concepts should be broken down into digestible explanations with clear examples. Writing should follow Flesch-Kincaid grade 8-10 equivalent for English sections to ensure broad comprehension.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Practical Relevance
+All theoretical concepts must be connected to real-world applications, case studies, and implementation insights. Content should demonstrate how concepts apply in actual robotics and AI systems, providing practical value beyond theoretical understanding.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Safety and Ethics Awareness
+All AI-driven physical systems must be presented with appropriate safety considerations and ethical implications. Content should emphasize responsible development and deployment of physical AI systems, highlighting potential risks and mitigation strategies.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Balanced Bilingual Accessibility
+Content must be accessible in both English (primary) and Urdu (parallel explanations or footnotes). Urdu sections must prioritize easy comprehension for new learners while maintaining technical accuracy and educational value.
 
-### [PRINCIPLE_6_NAME]
+### Credible Source Verification
+All scientific or engineering claims must reference credible sources (IEEE, ACM, arXiv, journals, robotics textbooks, manufacturer whitepapers). At least 40% of citations must be peer-reviewed or academic publications, following IEEE citation style.
 
+## Technical Standards
 
-[PRINCIPLE__DESCRIPTION]
+### Content Requirements
+- Total book length: 5,000–7,000 words
+- Minimum 25 credible references
+- All technical illustrations must be original or recreated
+- Zero plagiarism detected
+- Content validated by LLM + robotics domain reasoning
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Format Standards
+- Primary formats: PDF + ePub
+- Secondary format: printable A4 version
+- Content languages: English (main), Urdu (parallel explanations or footnotes)
+- Writing style: simple, structured, and concept-first
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Development Workflow
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Quality Assurance
+- All content must undergo technical validation by domain experts
+- Explanations must be understandable for readers with basic science/tech background
+- All robotics and AI concepts presented accurately with traceable references
+- Content must be suitable for publication and online distribution
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Review Process
+- Technical accuracy verification through credible sources
+- Clarity validation for target audience comprehension
+- Bilingual accessibility review for both English and Urdu sections
+- Plagiarism check and content validation
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All project activities must comply with these principles. Any deviation requires explicit documentation and approval. Content must meet all specified standards before publication. Regular reviews ensure ongoing compliance with technical accuracy and educational objectives.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-09 | **Last Amended**: 2025-12-09

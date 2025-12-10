@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p history/prompts/constitution)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(npm init docusaurus@latest frontend classic)",
+      "Bash(git rev-parse --git-dir)",
+      "Bash(python scripts/validate_word_count.py)",
+      "Bash(git add .)"
+    ]
+  }
+}
