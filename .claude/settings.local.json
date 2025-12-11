@@ -9,7 +9,12 @@
       "Bash(npm init docusaurus@latest frontend classic)",
       "Bash(git rev-parse --git-dir)",
       "Bash(python scripts/validate_word_count.py)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nComplete Physical AI & Humanoid Robotics Book project with all components\n\n- Full book content with 4 modules covering Physical AI fundamentals\n- Bilingual content (English/Urdu) throughout all modules\n- Backend services with FastAPI, database models, and RAG functionality\n- Frontend Docusaurus site with RAG chatbot component\n- Research documentation and implementation artifacts\n- Diagrams and visual materials for all modules\n- Validation scripts and build tools\n- Complete project structure with all dependencies\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(pip install fastapi uvicorn)",
+      "Bash(pip install beautifulsoup4)",
+      "Bash(pip install langchain-chroma)",
+      "Bash(npm install)"
     ]
   }
 }

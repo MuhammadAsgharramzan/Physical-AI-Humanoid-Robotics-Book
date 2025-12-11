@@ -57,8 +57,8 @@ async def get_rag_service():
         # Create or load vector store
         try:
             # Try to load existing vector store
-            from langchain.vectorstores import Chroma
-            from langchain.embeddings import OpenAIEmbeddings
+            from langchain_chroma import Chroma
+            from langchain_openai import OpenAIEmbeddings
 
             embeddings = OpenAIEmbeddings(openai_api_key=settings.openai_api_key)
             vector_store = Chroma(
@@ -140,4 +140,4 @@ async def startup_event():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=3000)

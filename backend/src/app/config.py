@@ -26,7 +26,7 @@ class Settings(BaseSettings):
 
     # Server settings
     host: str = os.getenv("HOST", "0.0.0.0")
-    port: int = int(os.getenv("PORT", "8000"))
+    port: int = int(os.getenv("PORT", "3000"))
 
     # CORS settings
     allowed_origins: str = os.getenv("ALLOWED_ORIGINS", "*")
