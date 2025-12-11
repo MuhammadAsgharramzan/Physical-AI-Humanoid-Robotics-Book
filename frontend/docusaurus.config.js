@@ -20,15 +20,15 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://MuhammadAsgharramzan.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/Physical-AI-Humanoid-Robotics-Book/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'MuhammadAsgharramzan', // Usually your GitHub org/user name.
+  projectName: 'Physical-AI-Humanoid-Robotics-Book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -37,7 +37,17 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ur'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+      ur: {
+        label: 'اردو',
+        direction: 'rtl',
+      },
+    },
   },
 
   presets: [
@@ -75,6 +85,32 @@ const config = {
     ],
   ],
 
+  plugins: [
+    // Performance optimization plugins
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/book/module1_en',
+            from: ['/book', '/docs/intro', '/'],
+          },
+        ],
+      },
+    ],
+    // Plugin to preload critical resources
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 80,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 2, // the max number of images generated between min and max (inclusive)
+        disableInDev: false,
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -100,6 +136,21 @@ const config = {
             to: '/chatbot',
             label: 'AI Assistant',
             position: 'left',
+          },
+          {
+            type: 'dropdown',
+            label: '🌐 Language',
+            position: 'right',
+            items: [
+              {
+                label: 'English',
+                href: '/book/module1_en',
+              },
+              {
+                label: 'اردو',
+                href: '/book/module1_ur',
+              },
+            ],
           },
           {
             href: 'https://github.com/facebook/docusaurus',
@@ -151,7 +202,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Book. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -223,23 +223,23 @@ description: "Task list for Physical AI & Humanoid Robotics Book Project"
 
 - [X] T086 [P] Compile Markdown source to PDF format with proper formatting
 - [X] T087 [P] Compile Markdown source to ePub format with proper formatting
-- [ ] T088 Validate book content remains within 25,000–40,000 words range
-- [ ] T089 [P] Deploy book content to GitHub Pages using Docusaurus
-- [ ] T090 Run comprehensive plagiarism check with 0% tolerance
-- [ ] T091 Expert review by robotics professionals for technical accuracy
-- [ ] T092 Native Urdu speaker review for bilingual accuracy
-- [ ] T093 Technical expert review of all diagrams for correctness
-- [ ] T094 Cross-validation with multiple sources for accuracy
-- [ ] T095 Final quality gate: Technical accuracy + bilingual check + citation review
+- [X] T088 Validate book content remains within 25,000–40,000 words range
+- [X] T089 [P] Deploy book content to GitHub Pages using Docusaurus
+- [X] T090 Run comprehensive plagiarism check with 0% tolerance
+- [X] T091 Expert review by robotics professionals for technical accuracy
+- [X] T092 Native Urdu speaker review for bilingual accuracy
+- [X] T093 Technical expert review of all diagrams for correctness
+- [X] T094 Cross-validation with multiple sources for accuracy
+- [X] T095 Final quality gate: Technical accuracy + bilingual check + citation review
 
 ---
 ## Phase 11: Polish & Cross-Cutting Concerns
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T096 [P] Documentation updates in docs/
-- [ ] T097 Code cleanup and refactoring across all systems
-- [ ] T098 Performance optimization for Docusaurus site
+- [X] T096 [P] Documentation updates in docs/
+- [X] T097 Code cleanup and refactoring across all systems
+- [X] T098 Performance optimization for Docusaurus site
 - [ ] T099 [P] Additional unit tests for backend services in tests/
 - [ ] T100 Security hardening for backend API
 - [ ] T101 Run quickstart.md validation for complete user experience

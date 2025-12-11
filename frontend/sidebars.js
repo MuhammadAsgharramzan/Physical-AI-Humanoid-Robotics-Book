@@ -28,7 +28,8 @@ const sidebars = {
           label: 'Module 1: Foundations of Physical AI',
           collapsed: false,
           items: [
-            'module1_bilingual'
+            'module1_en',
+            'module1_ur'
           ],
         },
         {
@@ -36,7 +37,8 @@ const sidebars = {
           label: 'Module 2: Sensing and Perception in Physical AI',
           collapsed: false,
           items: [
-            'module2_bilingual'
+            'module2_en',
+            'module2_ur'
           ],
         },
         {
@@ -44,15 +46,17 @@ const sidebars = {
           label: 'Module 3: Control and Locomotion Systems',
           collapsed: false,
           items: [
-            'module3_bilingual'
+            'module3_en',
+            'module3_ur'
           ],
         },
         {
           type: 'category',
-          label: 'Module 4: Applications and Future Directions',
+          label: 'Module 4: AI Reasoning & Applications in Robotics',
           collapsed: false,
           items: [
-            'module4_bilingual'
+            'module4_en',
+            'module4_ur'
           ],
         },
       ],

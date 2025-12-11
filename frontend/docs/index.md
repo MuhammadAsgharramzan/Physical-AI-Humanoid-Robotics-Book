@@ -22,17 +22,29 @@ This book explains the fundamental principles of Physical AI and humanoid roboti
 
 The book is organized into four main modules:
 
-### [Module 1: Foundations of Physical AI](./module1/)
+### [Module 1: Foundations of Physical AI (English)](./module1_en/)
 Explore the fundamental concepts of Physical AI, embodied cognition, and how physical interaction with the environment shapes intelligence.
 
-### [Module 2: Sensing & Perception in Robotics](./module2/)
+### [Module 1: جسمانی مصنوعی ذہانت کی بنیادیں (Urdu)](./module1_ur/)
+ان بنیادی تصورات کو سمجھیں جو جسمانی مصنوعی ذہانت، جسمانی شعور، اور ماحول کے ساتھ تعامل کے ذریعے ذہانت کی تشکیل میں اہم کردار ادا کرتے ہیں۔
+
+### [Module 2: Sensing & Perception in Robotics (English)](./module2_en/)
 Understand how robots perceive their environment through various sensors and process sensory information to make decisions.
 
-### [Module 3: Control & Actuation in Humanoid Robotics](./module3/)
+### [Module 2: روبوٹکس میں حس اور ادراک (Urdu)](./module2_ur/)
+سیکھیں کہ روبوٹ متعدد حس اشاروں کے ذریعے اپنے ماحول کا ادراک کیسے کرتے ہیں اور فیصلہ سازی کے لیے حس اشاروں کی معلومات کو کیسے پروسیس کرتے ہیں۔
+
+### [Module 3: Control & Actuation in Humanoid Robotics (English)](./module3_en/)
 Learn about the specialized control and actuation systems that enable humanoid robots to move with human-like capabilities.
 
-### [Module 4: AI Reasoning & Applications in Robotics](./module4/)
+### [Module 3: ہیومنوائڈ روبوٹکس میں کنٹرول اور حرکت (Urdu)](./module3_ur/)
+ان خصوصی کنٹرول اور حرکت کے نظام کے بارے میں سیکھیں جو ہیومنوائڈ روبوٹس کو انسان نما صلاحیتوں کے ساتھ حرکت کرنے کے قابل بناتے ہیں۔
+
+### [Module 4: AI Reasoning & Applications in Robotics (English)](./module4_en/)
 Discover how artificial intelligence enhances robotic capabilities and enables intelligent behavior in real-world applications.
+
+### [Module 4: روبوٹکس میں مصنوعی ذہانت کا تجزیہ اور اطلاق (Urdu)](./module4_ur/)
+دریافت کریں کہ مصنوعی ذہانت روبوٹک صلاحیتوں کو کیسے بڑھاتی ہے اور حقیقی دنیا کے اطلاقیوں میں ذہین رویہ کو فعال کیسے کرتی ہے۔
 
 ## Learning Approach
 
@@ -53,7 +65,7 @@ This book is designed for:
 
 ## Getting Started
 
-Begin with [Module 1: Foundations of Physical AI](./module1/) to establish the core concepts, then progress through each module sequentially for the best learning experience.
+Begin with [Module 1: Foundations of Physical AI (English)](./module1_en/) or [Module 1: جسمانی مصنوعی ذہانت کی بنیادیں (Urdu)](./module1_ur/) to establish the core concepts, then progress through each module sequentially for the best learning experience.
 
 ## References and Further Reading
 

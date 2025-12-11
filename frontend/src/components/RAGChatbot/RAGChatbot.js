@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import './RAGChatbot.css';
 
 const RAGChatbot = () => {
@@ -9,26 +9,26 @@ const RAGChatbot = () => {
   const messagesEndRef = useRef(null);
 
   // Function to scroll to bottom of messages
-  const scrollToBottom = () => {
+  const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, scrollToBottom]);
 
   // Function to get selected text from the page
-  const getSelectedText = () => {
+  const getSelectedText = useCallback(() => {
     const selectedText = window.getSelection().toString().trim();
     if (selectedText) {
       setSelectedText(selectedText);
       // Optionally pre-fill the input with a question about the selected text
       setInputValue(`Can you explain more about: "${selectedText.substring(0, 50)}..."?`);
     }
-  };
+  }, []);
 
   // Handle sending a message
-  const handleSendMessage = async () => {
+  const handleSendMessage = useCallback(async () => {
     if (!inputValue.trim() || isLoading) return;
 
     // Add user message to chat
@@ -40,25 +40,39 @@ const RAGChatbot = () => {
     setIsLoading(true);
 
     try {
-      // Determine which API endpoint to use based on whether there's selected text
+      // Try the real API first, fall back to mock if it fails
+      let data;
       const endpoint = currentSelectedText ? '/api/selected-text-ask' : '/api/ask';
 
-      const response = await fetch('http://localhost:8000' + endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          question: currentInput,
-          selected_text: currentSelectedText || null,
-        }),
-      });
+      try {
+        const response = await fetch('http://localhost:8000' + endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            question: currentInput,
+            selected_text: currentSelectedText || null,
+          }),
+        });
 
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        data = await response.json();
+      } catch (apiError) {
+        console.warn('Real API failed, using mock service:', apiError.message);
+
+        // Import and use mock service
+        const { mockAskQuestion, mockSelectedTextAsk } = await import('../../utils/mockRAGService');
+
+        if (currentSelectedText) {
+          data = await mockSelectedTextAsk(currentInput, currentSelectedText);
+        } else {
+          data = await mockAskQuestion(currentInput);
+        }
       }
-
-      const data = await response.json();
 
       // Add bot response to chat
       const botMessage = {
@@ -85,20 +99,61 @@ const RAGChatbot = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [inputValue, isLoading, selectedText]);
 
   // Handle key press (Enter to send)
-  const handleKeyPress = (e) => {
+  const handleKeyPress = useCallback((e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
-  };
+  }, [handleSendMessage]);
 
   // Function to copy message to clipboard
-  const copyToClipboard = (text) => {
+  const copyToClipboard = useCallback((text) => {
     navigator.clipboard.writeText(text);
-  };
+  }, []);
+
+  // Memoize message components to prevent unnecessary re-renders
+  const MessageComponent = useMemo(() => {
+    return messages.map((message, index) => (
+      <div
+        key={`${index}-${message.timestamp?.getTime() || index}`}
+        className={`message ${message.type === 'user' ? 'user-message' : 'bot-message'}`}
+      >
+        <div className="message-content">
+          <div className="message-text">
+            {message.content}
+          </div>
+
+          {message.sources && message.sources.length > 0 && (
+            <div className="message-sources">
+              <strong>Sources:</strong>
+              <ul>
+                {message.sources.map((source, idx) => (
+                  <li key={idx}>{source}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {message.confidence !== undefined && (
+            <div className="message-confidence">
+              Confidence: {(message.confidence * 100).toFixed(0)}%
+            </div>
+          )}
+
+          <button
+            className="copy-button"
+            onClick={() => copyToClipboard(message.content)}
+            title="Copy to clipboard"
+          >
+            📋
+          </button>
+        </div>
+      </div>
+    ));
+  }, [messages, copyToClipboard]);
 
   return (
     <div className="rag-chatbot-container">
@@ -115,43 +170,7 @@ const RAGChatbot = () => {
             <p>Select text on the page and click here to ask specific questions about it!</p>
           </div>
         ) : (
-          messages.map((message, index) => (
-            <div
-              key={index}
-              className={`message ${message.type === 'user' ? 'user-message' : 'bot-message'}`}
-            >
-              <div className="message-content">
-                <div className="message-text">
-                  {message.content}
-                </div>
-
-                {message.sources && message.sources.length > 0 && (
-                  <div className="message-sources">
-                    <strong>Sources:</strong>
-                    <ul>
-                      {message.sources.map((source, idx) => (
-                        <li key={idx}>{source}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {message.confidence !== undefined && (
-                  <div className="message-confidence">
-                    Confidence: {(message.confidence * 100).toFixed(0)}%
-                  </div>
-                )}
-
-                <button
-                  className="copy-button"
-                  onClick={() => copyToClipboard(message.content)}
-                  title="Copy to clipboard"
-                >
-                  📋
-                </button>
-              </div>
-            </div>
-          ))
+          MessageComponent
         )}
         {isLoading && (
           <div className="message bot-message">
